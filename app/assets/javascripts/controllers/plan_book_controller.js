@@ -1,2 +1,2 @@
-Caligal.PlanBookController = Ember.ObjectController.extend({
+Caligal.PlanBookController = Ember.Controller.extend({
 });

@@ -1,3 +1,5 @@
 Caligal.Router.map(function() {
-  this.route("plan_book");
+  this.resource("plan_book", function() {
+    this.resource("calendar_month", { path: '/:year/:month'});
+  });
 });
