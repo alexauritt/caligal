@@ -1,16 +1,13 @@
 Caligal.YearRoute = Ember.Route.extend({
   model: function(params) {
     return { year: params.year };
-  },
-  setupController: function(controller, model) {
-    controller.set('year', model.year);
   }
 });
 
-Caligal.YearIndexRoute = Ember.Route.extend({
-  setupController: function(controller) {
-    controller.set('name', 'alex');
-  }
+Caligal.MonthRoute = Ember.Route.extend({
+  model: function(params) {
+    return { month: params.month };
+  }  
 });
 
 // Caligal.ApplicationRoute = Ember.Route.extend({
