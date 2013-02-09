@@ -1,2 +1,2 @@
-Caligal.ApplicationView = Ember.View.extend({
-});
+// Caligal.ApplicationView = Ember.View.extend({
+// });
