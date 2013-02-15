@@ -7,6 +7,7 @@ Caligal.CalendarIndexRoute = Ember.Route.extend({
   }
 });
 
+
 Caligal.YearRoute = Ember.Route.extend({
   model: function(params) {
     return { id: params.year };
@@ -16,14 +17,19 @@ Caligal.YearRoute = Ember.Route.extend({
 Caligal.MonthRoute = Ember.Route.extend({
   model: function(params) {
     return { id: params.month };
-  }  
+  },
+  renderTemplate: function() {
+    this.render('month', {
+      into: 'application'
+    });
+  }
 });
 
-Caligal.MonthIndexRoute = Ember.Route.extend({
-  model: function(params) {
-    return { 
-      anotherMonth: Ember.Object.create({id: 20}),
-      anotherYear: Ember.Object.create({id: 2012})
-    };
-  }  
-});
+// Caligal.MonthIndexRoute = Ember.Route.extend({
+//   model: function(params) {
+//     return { 
+//       anotherMonth: Ember.Object.create({id: 20}),
+//       anotherYear: Ember.Object.create({id: 2012})
+//     };
+//   }  
+// });

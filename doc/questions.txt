@@ -1,0 +1,3 @@
+Does it make sense to create whole new Ember Objects to represent months and years, when all we need is an 'object' with id 2009, etc. to represent year 2009 for nested URLs?
+
+How can I check for / validate existence of a specific attribute when initializing an Ember object? e.g. I want to write an Ember Date object wrapper, to provide extra methods. These objects would be created like so: Caligal.CaliDate.create({date: new Date()}), but then Caligal.CaliDate.create({}) should fail. How do I ensure this?
