@@ -24,9 +24,21 @@ Caligal.CalendarMonth = Ember.Object.extend({
    }
    return this.month - 1;
   },
+  nextMonth: function() {
+    if (this.month === 12) {
+      return 1;
+    }
+    return this.month + 1;
+  },
   yearOfPreviousMonth: function() {
     if (this.month === 1) {
       return this.year - 1;
+    }
+    return this.year;
+  },
+  yearOfNextMonth: function() {
+    if (this.month === 12) {
+      return this.year + 1;
     }
     return this.year;
   }
