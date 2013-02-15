@@ -7,5 +7,5 @@
 // Caligal.CalendarYearController = Ember.ObjectController.extend({
 // });
 // 
-// Caligal.YearMonthController = Ember.ObjectController.extend({
-// });
+Caligal.YearMonthController = Ember.ObjectController.extend({
+});
