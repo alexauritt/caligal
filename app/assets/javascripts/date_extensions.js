@@ -74,4 +74,9 @@ Date.prototype.clearTime = function clearTime() {
   this.setMilliseconds(0);
 }
 
+Date.prototype.monthName = function monthName() {
+  var monthNames = ['January', 'February', 'March', 'April', 'May', 
+    'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return monthNames[this.getMonth()];
+}
 
