@@ -75,8 +75,24 @@ Date.prototype.clearTime = function clearTime() {
 }
 
 Date.prototype.monthName = function monthName() {
+  if ((arguments.length > 0) && (arguments[0] == 'short')) {
+    var shortMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 
+      'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    return shortMonthNames[this.getMonth()];
+  }
+  
   var monthNames = ['January', 'February', 'March', 'April', 'May', 
     'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   return monthNames[this.getMonth()];
+}
+
+Date.prototype.dayName = function dayName() {
+  if ((arguments.length > 0) && (arguments[0] == 'short')) {
+    var shortDayNames = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'];
+    return shortDayNames[this.getDay()];
+  }
+  
+  var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return dayNames[this.getDay()];
 }
 

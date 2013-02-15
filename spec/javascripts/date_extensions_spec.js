@@ -47,6 +47,15 @@ describe("Date extensions", function() {
   describe("monthName", function() {
     it('displays march', function() {
       expect(march1900.monthName()).toBe('March');
+      expect(march1900.monthName('short')).toBe('Mar');      
+    });
+  });
+
+  describe("dayName", function() {
+    it('displays thursday', function() {
+      expect(feb_2004.dayName()).toBe('Thursday');
+      expect(feb_2004.dayName('short')).toBe('Thur');      
     });
   })
+  
 });
