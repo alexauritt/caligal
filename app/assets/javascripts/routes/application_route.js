@@ -1,7 +1,7 @@
 Caligal.CalendarIndexRoute = Ember.Route.extend({
   redirect: function() {
     var today = new Date();
-    var year = Ember.Object.create({id: today.getFullYear()});
+    var year = Caligal.CalendarYear.create({year: today.getFullYear()});
     var month = Caligal.CalendarMonth.create({date: today});
     this.transitionTo('month.index', year, month);
   }
@@ -9,24 +9,24 @@ Caligal.CalendarIndexRoute = Ember.Route.extend({
 
 Caligal.YearRoute = Ember.Route.extend({
   model: function(params) {
-    return { id: params.year };
+    return Caligal.CalendarYear.create({year: params.year});
   }
 });
 
 Caligal.MonthRoute = Ember.Route.extend({
   model: function(params) {
-    var year = this.modelFor('year').id;
-    var d = new Date(year, params.month - 1);
-    return Caligal.CalendarMonth.create({date: d});
+    var yearNumber = this.modelFor('year').id;
+    var date = new Date(yearNumber, params.month - 1);
+    return Caligal.CalendarMonth.create({date: date});
   },
   setupController: function(controller, model) {
-    var year = model.yearOfPreviousMonth().year;
-    var month = model.previousMonth();
-    var caliMonth = Caligal.CalendarMonth.create({year: year, month: month});    
+    var yearNumber = model.yearOfPreviousMonth().id;
+    var month = model.previousMonthNumber();
+    var caliMonth = Caligal.CalendarMonth.create({year: yearNumber, month: month});    
     controller.set('previousMonth', caliMonth);
     
     year = model.yearOfNextMonth().year;
-    month = model.nextMonth();
+    month = model.nextMonthNumber();
     caliMonth = Caligal.CalendarMonth.create({year: year, month: month});
     controller.set('nextMonth', caliMonth);
     controller.set('year', model.year.id);

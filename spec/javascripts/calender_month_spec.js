@@ -21,13 +21,13 @@ describe("Caligal.CalendarMonth", function() {
     });
   });
   
-  describe('previousMonth', function() {
+  describe('previousMonthNumber', function() {
     it('works for march', function() {
-      expect(march2012.previousMonth()).toEqual(2);
+      expect(march2012.previousMonthNumber()).toEqual(2);
     });
     
     it('works for jan', function() {
-      expect(jan2000.previousMonth()).toEqual(12);
+      expect(jan2000.previousMonthNumber()).toEqual(12);
     });
   });
   
@@ -41,13 +41,13 @@ describe("Caligal.CalendarMonth", function() {
     });
   });
   
-  describe('nextMonth', function() {
+  describe('nextMonthNumber', function() {
     it('works for nov', function() {
-      expect(nov2010.nextMonth()).toEqual(12);
+      expect(nov2010.nextMonthNumber()).toEqual(12);
     });
     
     it('works for dec', function() {
-      expect(dec2009.nextMonth()).toEqual(1);
+      expect(dec2009.nextMonthNumber()).toEqual(1);
     });
   });
   

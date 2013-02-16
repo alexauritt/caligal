@@ -18,13 +18,13 @@ Caligal.CalendarMonth = Ember.Object.extend({
     this.year = Caligal.CalendarYear.create({year: d.getFullYear()});
     this.id = parseInt(d.getMonth()) + 1;      
   },
-  previousMonth: function() {
+  previousMonthNumber: function() {
    if (this.month === 1) {
      return 12;
    }
    return this.month - 1;
   },
-  nextMonth: function() {
+  nextMonthNumber: function() {
     if (this.month === 12) {
       return 1;
     }
