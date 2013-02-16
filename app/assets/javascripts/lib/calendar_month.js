@@ -30,16 +30,16 @@ Caligal.CalendarMonth = Ember.Object.extend({
     }
     return this.month + 1;
   },
-  yearOfPreviousMonth: function() {
+  yearNumberOfPreviousMonth: function() {
     if (this.month === 1) {
-      return Caligal.CalendarYear.create({year: this.year.id - 1});
+      return this.year.id - 1;
     }
-    return this.year;
+    return this.year.id;
   },
-  yearOfNextMonth: function() {
+  yearNumberOfNextMonth: function() {
     if (this.month === 12) {
-      return Caligal.CalendarYear.create({year: this.year.id + 1});
+      return this.year.id + 1;
     }
-    return this.year;
+    return this.year.id;
   }
 });

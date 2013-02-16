@@ -20,16 +20,17 @@ Caligal.MonthRoute = Ember.Route.extend({
     return Caligal.CalendarMonth.create({date: date});
   },
   setupController: function(controller, model) {
-    var yearNumber = model.yearOfPreviousMonth().id;
-    var month = model.previousMonthNumber();
-    var caliMonth = Caligal.CalendarMonth.create({year: yearNumber, month: month});    
-    controller.set('previousMonth', caliMonth);
+    var yearNumber = model.yearNumberOfPreviousMonth();
+    var monthNumber = model.previousMonthNumber();
+    var month = Caligal.CalendarMonth.create({year: yearNumber, month: monthNumber});    
+    controller.set('previousMonth', month);
     
-    year = model.yearOfNextMonth().year;
-    month = model.nextMonthNumber();
-    caliMonth = Caligal.CalendarMonth.create({year: year, month: month});
-    controller.set('nextMonth', caliMonth);
-    controller.set('year', model.year.id);
+    yearNumber = model.yearNumberOfNextMonth();
+    monthNumber = model.nextMonthNumber();
+    month = Caligal.CalendarMonth.create({year: yearNumber, month: monthNumber});
+    controller.set('nextMonth', month);
+
+    // controller.set('year', model.year.id);
   },
   renderTemplate: function() {
     this.render('month', {
