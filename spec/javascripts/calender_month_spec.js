@@ -4,6 +4,7 @@ describe("Caligal.CalendarMonth", function() {
   var jan2000 = Caligal.CalendarMonth.create({year: 2000, month: 1});
   var nov2010 = Caligal.CalendarMonth.create({year: 2010, month: 11});
   var dec2009 = Caligal.CalendarMonth.create({year: 2009, month: 12});
+
   describe("initialization by date object", function() {
     it("returns correct year", function() {
       expect(feb2013.get('year')).toEqual(2013);
