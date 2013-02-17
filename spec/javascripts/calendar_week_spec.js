@@ -10,4 +10,11 @@ describe("Caligal.CalendarWeek", function() {
       expect(firstDay.getDate()).toEqual(12); // 14th is Tues, so last Sunday was 12th
     });
   });
+  
+  describe('lastDay', function() {
+    it('should be a saturday', function() {
+      var lastDay = weekOfMay_14_2013.lastDay();
+      expect(lastDay.getDay()).toEqual(6);
+    });
+  });
 });

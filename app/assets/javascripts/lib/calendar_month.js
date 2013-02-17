@@ -6,9 +6,10 @@ Caligal.CalendarMonth = Ember.Object.extend({
     if (d === undefined) {
       this.month = this.get('month');
       this.year = this.get('year');
-      d = new Date(this.year, parseInt(this.month) - 1);
+      d = this.date = new Date(this.year, parseInt(this.month) - 1), 1;
     }
     else {
+      d.setDate(1);
       this.month = parseInt(d.getMonth()) + 1;
       this.year = d.getFullYear();
     }
@@ -16,7 +17,9 @@ Caligal.CalendarMonth = Ember.Object.extend({
     this.firstDisplayed = d.beginningOfMonth().beginningOfWeek();
     this.monthName = d.monthName();
     this.year = Caligal.CalendarYear.create({year: d.getFullYear()});
-    this.id = parseInt(d.getMonth()) + 1;      
+    this.id = parseInt(d.getMonth()) + 1;
+    
+    this.weeks = this.buildCalendarWeeks();
   },
   previousMonthNumber: function() {
    if (this.month === 1) {
@@ -41,5 +44,17 @@ Caligal.CalendarMonth = Ember.Object.extend({
       return this.year.id + 1;
     }
     return this.year.id;
+  },
+  buildCalendarWeeks: function() {
+    var currentWeekStartDay = this.firstDisplayed;
+    var currentMonth = this.date.getMonth();
+    var weekList = [];
+
+    while(currentWeekStartDay.getMonth() != (this.nextMonthNumber() - 1)) {
+      weekList.push(Caligal.CalendarWeek.create({date: currentWeekStartDay}));
+      currentWeekStartDay.setDate(currentWeekStartDay.getDate() + 7);
+    }
+    
+    return weekList;
   }
 });

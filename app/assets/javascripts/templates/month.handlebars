@@ -3,4 +3,12 @@
 {{#linkTo month.index nextMonth.year nextMonth }}next{{/linkTo}}
 <br />
 
-The actual calendar table will go here
+<table>
+  {{#each week in weeks}}
+    <tr>
+      {{#each day in week.days}}
+        <td>{{ day }}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+</table>
