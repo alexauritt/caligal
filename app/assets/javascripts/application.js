@@ -18,4 +18,3 @@
 //= require_self
 //= require caligal
 Caligal = Ember.Application.create();
-//= require_tree .
