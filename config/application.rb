@@ -58,5 +58,6 @@ module Caligal
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.handlebars.templates_root = 'app/assets/javascripts/cali/temple/'
   end
 end
